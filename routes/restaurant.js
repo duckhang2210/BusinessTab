@@ -40,4 +40,16 @@ router.post(
   }
 );
 
+// @route    GET api/restaurant
+// @desc     Get all restaurants
+router.get('/', async (req, res) => {
+  try {
+    const restaurant = await Restaurant.find().sort({ date: -1 });
+    res.json(restaurant);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
