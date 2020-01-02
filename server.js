@@ -1,15 +1,13 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const connectDB = require('./config/db');
 
 const app = express();
 
 //middleware
 app.use(bodyParser.json());
 
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/reactgooglebooks'
-);
+connectDB();
 
 const port = process.env.PORT || 5000;
 
