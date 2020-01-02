@@ -52,4 +52,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route    GET api/restaurant/:id
+// @desc     Get restaurant by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const restaurant = await Restaurant.findById(req.params.id);
+
+    // Check for ObjectId format and restaurant
+    if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !restaurant) {
+      return res.status(404).json({ msg: 'Restaurant not found' });
+    }
+
+    res.json(restaurant);
+  } catch (err) {
+    console.error(err.message);
+
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
