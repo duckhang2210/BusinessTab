@@ -7,6 +7,8 @@ const app = express();
 //middleware
 app.use(bodyParser.json());
 
+app.use('/api/restaurant', require('./routes/restaurant'));
+
 connectDB();
 
 const port = process.env.PORT || 5000;
