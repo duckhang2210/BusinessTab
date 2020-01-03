@@ -28,7 +28,9 @@ class Restaurants extends Component {
                   <Media object data-src='holder.js/64x64' alt='placeholder' />
                 </Media>
                 <Media body>
-                  <Media heading>{restaurant.name}</Media>
+                  <Media heading>
+                    <a href={'/api/restaurant'}>{restaurant.name}</a>
+                  </Media>
                   {/*{restaurant.rating} <br />*/}
                   {restaurant.address}
                 </Media>

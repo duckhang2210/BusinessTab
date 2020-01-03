@@ -15,7 +15,18 @@ router.post(
         .isEmpty(),
       check('address', 'Address is required')
         .not()
+        .isEmpty(),
+      check('city', 'city is required')
+        .not()
+        .isEmpty(),
+      check('state', 'state is required and must be 2 CAPITALIZED letters')
+        .not()
         .isEmpty()
+        .matches(/^[A-Z]{2}$/, 'i'),
+      check('zip', 'zipcode is required and must be 5 numbers')
+        .not()
+        .isEmpty()
+        .matches(/^[0-9]{5}$/, 'i')
     ]
   ],
   async (req, res) => {
@@ -27,7 +38,10 @@ router.post(
     try {
       const newRestaurant = new Restaurant({
         name: req.body.name,
-        address: req.body.address
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip
       });
 
       const restaurant = await newRestaurant.save();
