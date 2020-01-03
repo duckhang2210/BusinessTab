@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button, Media } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Media } from 'reactstrap';
 import API from '../utils/API';
 
 class Restaurants extends Component {
@@ -29,7 +29,9 @@ class Restaurants extends Component {
                 </Media>
                 <Media body>
                   <Media heading>
-                    <a href={'/api/restaurant'}>{restaurant.name}</a>
+                    <a href={'/restaurant/' + restaurant._id}>
+                      {restaurant.name}
+                    </a>
                   </Media>
                   {restaurant.address}&#44;&nbsp;{restaurant.city}&#44;&nbsp;
                   {restaurant.state}&nbsp;{restaurant.zip}
