@@ -31,8 +31,8 @@ class Restaurants extends Component {
                   <Media heading>
                     <a href={'/api/restaurant'}>{restaurant.name}</a>
                   </Media>
-                  {/*{restaurant.rating} <br />*/}
-                  {restaurant.address}
+                  {restaurant.address}&#44;&nbsp;{restaurant.city}&#44;&nbsp;
+                  {restaurant.state}&nbsp;{restaurant.zip}
                 </Media>
               </Media>
             </ListGroupItem>
